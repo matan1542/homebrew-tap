@@ -1,15 +1,15 @@
 class Zdrop < Formula
   desc "Kiro-style dropdown autocomplete for zsh, for every command on your PATH"
   homepage "https://github.com/matan1542/zdrop"
-  version "0.2.1"
+  version "0.2.2"
   license "MIT"
 
   if Hardware::CPU.arm?
-    url "https://github.com/matan1542/zdrop/releases/download/v0.2.1/zdrop-0.2.1-darwin-arm64.tar.xz"
-    sha256 "01e3e56aea19e053969886c9d9807822fae23a03b85febd1ca3ebfc9384446fd"
+    url "https://github.com/matan1542/zdrop/releases/download/v0.2.2/zdrop-0.2.2-darwin-arm64.tar.xz"
+    sha256 "19033c7de1034d93e45b3cb20fd3a81290e3be430f6ec394cfa3773f30ceeabb"
   else
-    url "https://github.com/matan1542/zdrop/releases/download/v0.2.1/zdrop-0.2.1-darwin-x64.tar.xz"
-    sha256 "4c89437ea1f3c64cf97843137fefba818bfd00928b9064013ed8a0de678f672e"
+    url "https://github.com/matan1542/zdrop/releases/download/v0.2.2/zdrop-0.2.2-darwin-x64.tar.xz"
+    sha256 "d471fffd155f1cb437cc4a9748c9e182ab1b8832bb0d7de258d7d45a6f77ada6"
   end
 
   depends_on :macos
@@ -22,8 +22,8 @@ class Zdrop < Formula
 
   def caveats
     <<~EOS
-      Add this line to the end of ~/.zshrc, then open a new terminal tab:
-        source "#{opt_libexec}/zsh/zdrop.plugin.zsh"
+      Turn it on (adds one line to the end of ~/.zshrc), then open a new terminal tab:
+        zdrop setup
       Check the setup any time with: zdrop doctor
     EOS
   end
