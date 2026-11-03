@@ -1,18 +1,28 @@
 class Zdrop < Formula
   desc "Kiro-style dropdown autocomplete for zsh, for every command on your PATH"
   homepage "https://github.com/matan1542/zdrop"
-  version "0.3.1"
+  version "0.4.0"
   license "MIT"
 
-  if Hardware::CPU.arm?
-    url "https://github.com/matan1542/zdrop/releases/download/v0.3.1/zdrop-0.3.1-darwin-arm64.tar.xz"
-    sha256 "96742a32d69692150c44a08e569016b202896c7753b13a348e2f8fd255c4867f"
-  else
-    url "https://github.com/matan1542/zdrop/releases/download/v0.3.1/zdrop-0.3.1-darwin-x64.tar.xz"
-    sha256 "c3700af5c795f00ab800b1bc1b2adcb82accaeadacaf637120b2bee63eeb2286"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/matan1542/zdrop/releases/download/v0.4.0/zdrop-0.4.0-darwin-arm64.tar.xz"
+      sha256 "ad393e88d81c00443e9051b5a2f7fe720689fc59ef73fe96012fe13c10409c86"
+    else
+      url "https://github.com/matan1542/zdrop/releases/download/v0.4.0/zdrop-0.4.0-darwin-x64.tar.xz"
+      sha256 "c8745f0ec4eed0614c1038d3b94c6fac9390087ea5bcb5d2006b9e7eea3fd0b6"
+    end
   end
 
-  depends_on :macos
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/matan1542/zdrop/releases/download/v0.4.0/zdrop-0.4.0-linux-arm64.tar.xz"
+      sha256 "9d72094a0cbda11bb8282333b4937053b9bf8d252fad3b22eed8b64276bcbce3"
+    else
+      url "https://github.com/matan1542/zdrop/releases/download/v0.4.0/zdrop-0.4.0-linux-x64.tar.xz"
+      sha256 "f74eac6d40616cae81e03e7e161eecff8e6c4e1b2b80a0f7e305217db0b9d502"
+    end
+  end
 
   def install
     # self-contained: the daemon, the zsh plugin and a bundled Node.js
